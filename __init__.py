@@ -20,7 +20,7 @@ md_version = "2.0"
 md_name = "AUR"
 md_description = "Query and install AUR packages"
 md_license = "MIT"
-md_url = "https://github.com/albertlauncher/python/tree/main/aur"
+md_url = "https://github.com/albertlauncher/albert-plugin-python-aur"
 md_authors = "@manuelschneid3r"
 
 

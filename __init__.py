@@ -16,12 +16,12 @@ from urllib import request, parse
 from albert import *
 
 md_iid = "3.0"
-md_version = "2.0"
+md_version = "2.1"
 md_name = "AUR"
 md_description = "Query and install AUR packages"
 md_license = "MIT"
 md_url = "https://github.com/albertlauncher/albert-plugin-python-aur"
-md_authors = "@manuelschneid3r"
+md_authors = ["@ManuelSchneid3r"]
 
 
 class Plugin(PluginInstance, TriggerQueryHandler):

@@ -22,6 +22,7 @@ md_description = "Query and install AUR packages"
 md_license = "MIT"
 md_url = "https://github.com/albertlauncher/albert-plugin-python-aur"
 md_authors = ["@ManuelSchneid3r"]
+md_maintainers = ["@mparati31"]
 
 
 class Plugin(PluginInstance, TriggerQueryHandler):

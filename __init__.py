@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2024 Manuel Schneider
 
-"""
-Search for packages and open their URLs. This extension is also intended to be used to \
-quickly install the packages. If you are missing your favorite AUR helper tool send a PR.
-"""
 
 import json
 from datetime import datetime
@@ -21,6 +17,7 @@ md_name = "AUR"
 md_description = "Query and install AUR packages"
 md_license = "MIT"
 md_url = "https://github.com/albertlauncher/albert-plugin-python-aur"
+md_readme_url = "https://github.com/albertlauncher/albert-plugin-python-aur/blob/main/README.md"
 md_authors = ["@ManuelSchneid3r"]
 md_maintainers = ["@mparati31"]
 
@@ -49,14 +46,6 @@ class Plugin(PluginInstance, TriggerQueryHandler):
 
     def defaultTrigger(self):
         return 'aur '
-
-    def configWidget(self):
-        return [
-            {
-                'type': 'label',
-                'text': __doc__.strip()
-            }
-        ]
 
     def handleTriggerQuery(self, query):
         for _ in range(50):

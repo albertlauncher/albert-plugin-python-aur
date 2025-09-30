@@ -11,7 +11,7 @@ from urllib import request, parse
 
 from albert import *
 
-md_iid = "3.0"
+md_iid = "4.0"
 md_version = "2.1"
 md_name = "AUR"
 md_description = "Query and install AUR packages"
@@ -26,7 +26,6 @@ class Plugin(PluginInstance, TriggerQueryHandler):
 
     aur_url = "https://aur.archlinux.org/packages/"
     baseurl = 'https://aur.archlinux.org/rpc/'
-    iconUrls = [f"file:{Path(__file__).parent}/arch.svg"]
 
     def __init__(self):
         PluginInstance.__init__(self)
@@ -46,6 +45,11 @@ class Plugin(PluginInstance, TriggerQueryHandler):
 
     def defaultTrigger(self):
         return 'aur '
+
+    @staticmethod
+    def makeIcon():
+        return makeComposedIcon(makeImageIcon(Path(__file__).parent / "arch.svg"),
+                                makeGraphemeIcon("📦"))
 
     def handleTriggerQuery(self, query):
         for _ in range(50):
@@ -71,7 +75,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                         id=self.id(),
                         text="Error",
                         subtext=data['error'],
-                        iconUrls=self.iconUrls
+                        iconFactory=self.makeIcon,
                     ))
                 else:
                     results = []
@@ -83,7 +87,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                         name = entry['Name']
                         item = StandardItem(
                             id=self.id(),
-                            iconUrls=self.iconUrls,
+                            iconFactory=self.makeIcon,
                             text=f"{entry['Name']} {entry['Version']}"
                         )
 
@@ -130,6 +134,6 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                 id=self.id(),
                 text=md_name,
                 subtext="Enter a query to search the AUR",
-                iconUrls=self.iconUrls,
+                iconFactory=self.makeIcon,
                 actions=[Action("open-aur", "Open AUR packages website", lambda: openUrl(self.aur_url))]
             ))

@@ -75,7 +75,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                         id=self.id(),
                         text="Error",
                         subtext=data['error'],
-                        iconFactory=self.makeIcon,
+                        icon_factory=self.makeIcon,
                     ))
                 else:
                     results = []
@@ -87,7 +87,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                         name = entry['Name']
                         item = StandardItem(
                             id=self.id(),
-                            iconFactory=self.makeIcon,
+                            icon_factory=self.makeIcon,
                             text=f"{entry['Name']} {entry['Version']}"
                         )
 
@@ -134,6 +134,6 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                 id=self.id(),
                 text=md_name,
                 subtext="Enter a query to search the AUR",
-                iconFactory=self.makeIcon,
+                icon_factory=self.makeIcon,
                 actions=[Action("open-aur", "Open AUR packages website", lambda: openUrl(self.aur_url))]
             ))

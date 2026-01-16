@@ -1,4 +1,4 @@
-# Albert plugin: AUR
+# Albert plugin: AUR TEST
 
 ## Features
 

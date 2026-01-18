@@ -52,11 +52,11 @@ class Plugin(PluginInstance, GeneratorQueryHandler):
 
     @staticmethod
     def icon():
-        return makeImageIcon(Path(__file__).parent / "arch.svg")
+        return Icon.image(Path(__file__).parent / "arch.svg")
 
     @staticmethod
     def packageIcon():
-        return makeComposedIcon(Plugin.icon(), makeGraphemeIcon("📦"))
+        return Icon.composed(Plugin.icon(), Icon.grapheme("📦"))
 
     def emptyQueryItem(self):
         return StandardItem(
@@ -72,7 +72,7 @@ class Plugin(PluginInstance, GeneratorQueryHandler):
             id=self.id(),
             text="Error",
             subtext=msg,
-            icon_factory=lambda: makeComposedIcon(Plugin.icon(), makeGraphemeIcon("⚠️"))
+            icon_factory=lambda: Icon.composed(Plugin.icon(), Icon.grapheme("⚠️"))
         )
 
     def items(self, ctx):

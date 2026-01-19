@@ -16,7 +16,7 @@ from urllib import request, parse
 from albert import *
 
 md_iid = "5.0"
-md_version = "2.1.1"
+md_version = "2.1.2"
 md_name = "AUR"
 md_description = "Query and install AUR packages"
 md_license = "MIT"

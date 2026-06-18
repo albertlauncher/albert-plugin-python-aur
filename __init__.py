@@ -15,7 +15,7 @@ from urllib import request, parse
 
 from albert import *
 
-md_iid = "5.0"
+md_iid = "6.0"
 md_version = "2.1.2"
 md_name = "AUR"
 md_description = "Query and install AUR packages"
@@ -78,7 +78,7 @@ class Plugin(PluginInstance, GeneratorQueryHandler):
     def items(self, ctx):
         for _ in range(50):
             sleep(0.01)
-            if not ctx.isValid:
+            if not ctx.is_valid:
                 return
 
         query = ctx.query.strip()
